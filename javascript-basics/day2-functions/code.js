@@ -1,5 +1,4 @@
 // Day 2: Functions
-
 function add(a, b) {
   return a + b;
 }
