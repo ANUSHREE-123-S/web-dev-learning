@@ -1,3 +1,4 @@
+/*
 // Day 4: Objects + Destructuring + Spread
 
 // Task 1
@@ -18,3 +19,8 @@ const u2 = u1;
 
 u2.name = "Ram";
 console.log(u1.name); // check output
+*/
+
+const user={ name:"anu",age:20};
+const upuser={...user,id:1};
+console.log(upuser);
