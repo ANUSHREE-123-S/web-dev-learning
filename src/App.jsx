@@ -1,13 +1,15 @@
-function Hello({ name }) {
-  return <h1>Hello {name} 👋</h1>;
-}
+import Counter from "./Counter";
+import Toggle from "./Toggle";
 
 function App() {
+
   return (
     <div>
-      <Hello name="Anushree" />
-      <Hello name="Rahul" />
-      <Hello name="React Learner 🚀" />
+
+      <Counter />
+
+      <Toggle />
+
     </div>
   );
 }
