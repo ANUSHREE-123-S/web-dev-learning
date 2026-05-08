@@ -1,15 +1,9 @@
-import Counter from "./Counter";
-import Toggle from "./Toggle";
+import StudentList from "./StudentList";
 
 function App() {
-
   return (
     <div>
-
-      <Counter />
-
-      <Toggle />
-
+      <StudentList />
     </div>
   );
 }
