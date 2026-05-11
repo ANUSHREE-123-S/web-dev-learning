@@ -1,9 +1,9 @@
-import StudentList from "./StudentList";
+import FormsPractice from "./FormsPractice";
 
 function App() {
   return (
     <div>
-      <StudentList />
+      <FormsPractice />
     </div>
   );
 }
