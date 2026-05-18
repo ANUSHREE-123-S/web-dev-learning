@@ -1,11 +1,7 @@
-import FormsPractice from "./FormsPractice";
+import UseEffect from "./UseEffect";
 
 function App() {
-  return (
-    <div>
-      <FormsPractice />
-    </div>
-  );
+  return <UseEffect />;
 }
 
 export default App;
