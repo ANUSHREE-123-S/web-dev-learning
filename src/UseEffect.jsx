@@ -1,58 +1,37 @@
-import { useEffect, useState } from "react";
+import { useState,useEffect } from "react";
+function App(){
+    const [users,setUsers]=useState([]);
+    const [loading,setLoading]=useState(true);
+    const [error,setError]=useState("");
 
-function Day5UseEffect() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+    useEffect(()=>{
 
-  async function fetchUsers() {
-    try {
-      setLoading(true);
-
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-
-      const data = await response.json();
-
-      setUsers(data);
-      setError("");
-    } catch (err) {
-      setError("Something went wrong");
-    } finally {
-      setLoading(false);
+        async function fetchUsers() {
+            try{
+            const res=await fetch( "https://jsonplaceholder.typicode.com/users");
+            const data=await res.json();
+            setUsers(data);
+            }catch(err){
+                setError("somthing went wromg")
+            }finally{
+                setLoading(false);
+            }
+        }
+        fetchUsers();
+        
+    },[]);
+    if (loading){
+        return <h1>loading.....</h1>
     }
-  }
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (error) {
-    return <h1>{error}</h1>;
-  }
-
-  return (
-    <div>
-      <h1>User List</h1>
-
-      <button onClick={fetchUsers}>
-        Refresh Users
-      </button>
-
-      {users.map((user) => (
-        <div key={user.id}>
-          <h2>{user.name}</h2>
-          <p>{user.email}</p>
-          <hr />
+    if (error){
+        return <h1>{error}</h1>
+    }
+    return(
+        <div>
+            {users.map((user)=>(
+                <h2 key={user.id}>{user.name}</h2>
+            ))}
         </div>
-      ))}
-    </div>
-  );
+    );
 }
-
-export default Day5UseEffect;
+export default App;
