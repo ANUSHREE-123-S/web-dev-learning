@@ -1,50 +1,30 @@
-import { useState, useEffect } from "react";
-import { getUsers } from "./services/userService";
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-    const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
+  return (
+    <div>
+      <Navbar />
 
-    
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-        async function fetchUsers() {
-            try {
-                const data = await getUsers();
-                setUsers(data);
-            } catch (err) {
-                setError("Something went wrong");
-            } finally {
-                setLoading(false);
-            }
-        }
-      useEffect(() => {
+        <Route path="/about" element={<About />} />
 
-        fetchUsers();
+        <Route path="/dashboard" element={<Dashboard />} />
 
-    }, []);
-
-    if (loading) {
-        return <h1>Loading...</h1>;
-    }
-
-    if (error) {
-        return <h1>{error}</h1>;
-    }
-
-    return (
-        <div>
-            <button onClick={fetchUsers}>
-                Refresh Users
-            </button>
-            {users.map((user) => (
-                <div key={user.id}>
-                    <h2>{user.name}</h2>
-                    <p>{user.email}</p>
-                </div>
-            ))}
-        </div>
-    );
+        <Route
+          path="*"
+          element={<h1>404 Page Not Found</h1>}
+        />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
