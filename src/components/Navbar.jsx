@@ -1,21 +1,17 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-function Navbar() {
+function Navbar(){
+
   return (
-    <nav
-      style={{
-        display: "flex",
-        gap: "20px",
-        padding: "20px",
-      }}
-    >
-      <Link to="/">Home</Link>
-
-      <Link to="/about">About</Link>
-
-      <Link to="/dashboard">Dashboard</Link>
-    </nav>
-  );
+    <div>
+      <Link to="/">HOME </Link>
+      <br/>
+      <Link to="/about">ABOUT</Link>
+      <br/>
+      <Link to="/dashboard">DASHBOARD</Link>
+      <br/>
+      <Link to="/contact">CONTACT</Link>
+    </div>
+  )
 }
-
 export default Navbar;

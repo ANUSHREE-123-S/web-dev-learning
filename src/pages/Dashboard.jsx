@@ -1,21 +1,30 @@
-function Dashboard() {
-  const isLoggedIn = true;
+import { useNavigate,useLocation } from "react-router-dom";
 
-  return (
+function Dashboard(){
+  const navigate=useNavigate();
+  const location=useLocation();
+
+  const isLoggedIn=true;
+
+  if(!isLoggedIn){
+    return <h1>Access Denied</h1>
+  }
+
+  const userName=location.state?.name;
+
+  const handellogout=()=>{
+    navigate("/login");
+  };
+
+  return(
     <div>
-      {isLoggedIn ? (
-        <>
-          <h1>Dashboard</h1>
+      <h1>Dashboard</h1>
+      <h2>WELCOME {username}</h2>
 
-          <p>Welcome User</p>
-
-          <p>Current Page: Dashboard</p>
-        </>
-      ) : (
-        <h1>Access Denied</h1>
-      )}
+      <button onClick={handellogout}>
+        logout
+      </button>
     </div>
   );
 }
-
 export default Dashboard;

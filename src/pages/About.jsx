@@ -1,9 +1,8 @@
-function About() {
-  return (
+function About(){
+  return(
     <div>
-      <h1>About Page</h1>
-
-      <p>Current Page: About</p>
+      <h1>ABOUT PAGE</h1>
+      <p>you are in  about page</p>
     </div>
   );
 }
